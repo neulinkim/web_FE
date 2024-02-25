@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: rgb(29, 18, 83);
 }
 
 .orderContainer {
@@ -20,9 +21,19 @@ button {
   border-radius: 5px;
   background-color: #ffffff;
   cursor: pointer;
-  margin: 10px;
+  margin: 25px;
+  font-size: larger;
 }
 
-form {
-  text-align: center;
+.orderBtn {
+  width: 50vh;
+  height: 15vh;
+  border-radius: 8vh;
+  font-size: xx-large;
+}
+
+.Btn {
+  width: 50vh;
+  height: 10vh;
+  border-radius: 5vh;
 }
