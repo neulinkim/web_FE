@@ -52,11 +52,13 @@ function Basket() {
               <button
                 className={styles.plusBtn}
                 onClick={() => handleIncrement("handmadeCutlet")}
+                alt="수량 증가하기 버튼"
               ></button>
               <div className="count">{menuCounts.handmadeCutlet}</div>
               <button
                 className={styles.minusBtn}
                 onClick={() => handleDecrement("handmadeCutlet")}
+                alt="수량 감소하기 버튼"
               ></button>
             </div>
           </div>
@@ -104,13 +106,18 @@ function Basket() {
           </div>
         </div>
         <div style={{ display: "flex", marginBottom: "5vh" }}>
-          <button className={styles.storeBtn} onClick={goToBack}>
+          <button
+            className={styles.storeBtn}
+            onClick={goToBack}
+            alt="수정하기 버튼"
+          >
             수정
           </button>
           <button
             className={styles.storeBtn}
             onClick={goToPayment}
             style={{ backgroundColor: "darkorange" }}
+            alt="결제하기 버튼"
           >
             결제
           </button>

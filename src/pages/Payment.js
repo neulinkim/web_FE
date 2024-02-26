@@ -36,7 +36,11 @@ function Payment() {
   return (
     <div className={styles.container}>
       <div className={styles.tabBar}>
-        <button className={styles.goBackBtn} onClick={goToBack}></button>
+        <button
+          className={styles.goBackBtn}
+          onClick={goToBack}
+          alt="뒤로가기 버튼"
+        ></button>
         결제창
         <div className={styles.spacer}></div>
       </div>
@@ -71,6 +75,7 @@ function Payment() {
           className={styles.storeBtn}
           onClick={goToAcceptance}
           style={{ backgroundColor: "darkorange" }}
+          alt="총 금액에 따른 결제하기 버튼"
         >
           {totalCost}원 결제하기
         </button>

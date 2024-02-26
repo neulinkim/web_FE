@@ -24,13 +24,22 @@ function SplashPage() {
           className={styles.orderBtn}
           onClick={goToOrder}
           style={{ backgroundColor: "darkorange" }}
+          alt="주문하기 버튼"
         >
           주문하기
         </button>
-        <button className={styles.Btn} onClick={goToCurrentOrder}>
+        <button
+          className={styles.Btn}
+          onClick={goToCurrentOrder}
+          alt="현재 주문 내역 확인하기 버튼"
+        >
           현재 주문 내역
         </button>
-        <button className={styles.Btn} onClick={goToRecentOrder}>
+        <button
+          className={styles.Btn}
+          onClick={goToRecentOrder}
+          alt="최근 주문 내역 확인하기 버튼"
+        >
           최근 주문 내역
         </button>
       </div>

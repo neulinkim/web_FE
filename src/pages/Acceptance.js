@@ -29,7 +29,11 @@ function Payment() {
       <div className={styles.tabBar}>
         <div className={styles.spacer}></div>
         접수창
-        <button className={styles.goBackBtn} onClick={goToHome}></button>
+        <button
+          className={styles.goBackBtn}
+          onClick={goToHome}
+          alt="홈으로 이동하기 버튼"
+        ></button>
       </div>
 
       <div className={styles.contents}>
