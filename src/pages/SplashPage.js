@@ -20,7 +20,11 @@ function SplashPage() {
         <img src={logo} />
       </div>
       <div className={styles.orderContainer}>
-        <button className={styles.orderBtn} onClick={goToOrder}>
+        <button
+          className={styles.orderBtn}
+          onClick={goToOrder}
+          style={{ backgroundColor: "darkorange" }}
+        >
           주문하기
         </button>
         <button className={styles.Btn} onClick={goToCurrentOrder}>

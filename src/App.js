@@ -6,6 +6,7 @@ import CurrentOrder from "./pages/CurrentOrder";
 import RecentOrder from "./pages/RecentOrder";
 import Basket from "./pages/Basket";
 import Payment from "./pages/Payment";
+import Acceptance from "./pages/Acceptance";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path={"/recentOrder"} element={<RecentOrder />} />
         <Route path={"/basket"} element={<Basket />}></Route>
         <Route path={"/payment"} element={<Payment />}></Route>
+        <Route path={"/acceptance"} element={<Acceptance />}></Route>
       </Routes>
     </BrowserRouter>
   );

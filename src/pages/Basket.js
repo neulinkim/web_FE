@@ -103,11 +103,15 @@ function Basket() {
             </div>
           </div>
         </div>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", marginBottom: "5vh" }}>
           <button className={styles.storeBtn} onClick={goToBack}>
             수정
           </button>
-          <button className={styles.storeBtn} onClick={goToPayment}>
+          <button
+            className={styles.storeBtn}
+            onClick={goToPayment}
+            style={{ backgroundColor: "darkorange" }}
+          >
             결제
           </button>
         </div>

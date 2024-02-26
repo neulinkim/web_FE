@@ -32,31 +32,72 @@
   height: 90vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
 
   color: white;
 }
 
-.message {
-  /* margin-bottom: 5vh; */
-  font-size: larger;
-}
-
-.micBtn {
-  background-image: url("../assets/mic.png");
-  background-position: center;
-  background-repeat: no-repeat;
-
-  width: 150px;
-  height: 150px;
-  padding: 90px;
-  border-radius: 75px;
+.divider {
+  height: 0.5vh;
+  width: 90vh;
+  background-color: white;
 }
 
 .storeBtn {
+  min-height: 15vh;
   height: 15vh;
-  width: 40vh;
+  width: 80vh;
   font-size: 150%;
   border-radius: 8vh;
+}
+
+.menuView {
+  overflow: auto;
+  display: block;
+  margin-top: 5vh;
+}
+
+.eachMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 80vh;
+  height: 15vh;
+  min-height: 15vh;
+  margin: 15px 5px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: white;
+  color: black;
+  font-size: x-large;
+}
+
+.amount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plusBtn {
+  background-image: url("../assets/plus.png");
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-repeat: round;
+  border: 0px;
+  background-color: white;
+  color: rgb(29, 18, 83);
+}
+
+.minusBtn {
+  background-image: url("../assets/minus.png");
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background-repeat: round;
+  border: 0px;
+  background-color: white;
+  color: rgb(29, 18, 83);
 }

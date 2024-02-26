@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import styles from "../style/Payment.module.css";
+import styles from "../style/Acceptance.module.css";
 import { useNavigate } from "react-router-dom";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Payment() {
   const [menuCounts, setMenuCounts] = useState({
@@ -12,21 +14,10 @@ function Payment() {
     handmadeCutlet: 12000,
     longNamedMenu: 9000,
   });
-  const [totalCost, setTotalCost] = useState(0);
-
-  useEffect(() => {
-    // 총 결제금액 계산
-    // Object.keys(menuCounts) : menuCounts 객체의 속성들을 배열로 가져오기
-    // reduce() 메서드 : 배열의 각 요소에 대해 주어진 콜백 함수를 실행하고 하나의 결과값을 반환
-    const total = Object.keys(menuCounts).reduce((acc, menu) => {
-      return acc + menuCosts[menu] * menuCounts[menu];
-    }, 0);
-    setTotalCost(total);
-  }, [menuCounts, menuCosts]);
 
   const navigate = useNavigate();
-  const goToAcceptance = () => {
-    navigate("/acceptance");
+  const goToHome = () => {
+    navigate("/");
   };
 
   const goToBack = () => {
@@ -36,9 +27,9 @@ function Payment() {
   return (
     <div className={styles.container}>
       <div className={styles.tabBar}>
-        <button className={styles.goBackBtn} onClick={goToBack}></button>
-        결제창
         <div className={styles.spacer}></div>
+        접수창
+        <button className={styles.goBackBtn} onClick={goToHome}></button>
       </div>
 
       <div className={styles.contents}>
@@ -58,22 +49,19 @@ function Payment() {
             </div>
           </div>
         </div>
-
-        <div className={styles.divider}></div>
-
-        <div className={styles.eachMenu} style={{ minHeight: "15vh" }}>
-          <span>총 결제금액</span>
-          <div className={styles.amount}>
-            <div className="costs">{totalCost} 원</div>
-          </div>
-        </div>
-        <button
-          className={styles.storeBtn}
-          onClick={goToAcceptance}
+        <div
+          className={styles.acceptView}
           style={{ backgroundColor: "darkorange" }}
         >
-          {totalCost}원 결제하기
-        </button>
+          <div className={styles.acceptNum}>
+            <span>주문번호</span>
+            <span style={{ fontSize: "xxx-large" }}>
+              <b>7번</b>
+            </span>
+          </div>
+          <ProgressBar className={styles.progressBar} variant="info" now={30} />
+          <div>접수 중</div>
+        </div>
       </div>
     </div>
   );
