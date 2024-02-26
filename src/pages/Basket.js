@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "../style/Basket.module.css";
 import { useNavigate } from "react-router-dom";
+import { getFirestore, addDoc, deleteDoc, getDocs, doc, setDoc } from "firebase/firestore"
+import { firestore } from "../firebase";
 
 function Basket() {
   // 현재는 주문할 메뉴를 가정해놓은 상태
@@ -22,19 +24,29 @@ function Basket() {
     window.history.back();
   };
 
-  const handleIncrement = (menu) => {
+  const handleIncrement = async (menu) => {
+    await setDoc(doc(db, "basket", menu), {
+      name: menu,
+      count: menuCounts[menu] + 1,
+    });
     setMenuCounts((prevCounts) => ({
       ...prevCounts,
       [menu]: prevCounts[menu] + 1,
     }));
   };
 
-  const handleDecrement = (menu) => {
+  const handleDecrement = async (menu) => {
+    await setDoc(doc(db, "basket", menu), {
+      name: menu,
+      count: menuCounts[menu] > 1? menuCounts[menu] - 1 : 1,
+    });
     setMenuCounts((prevCounts) => ({
       ...prevCounts,
       [menu]: prevCounts[menu] > 1 ? prevCounts[menu] - 1 : 1,
     }));
   };
+
+  const db = getFirestore();
 
   return (
     <div className={styles.container}>
