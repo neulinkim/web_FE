@@ -1,13 +1,123 @@
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styles from "../style/Basket.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Basket() {
-  return <div>This is Basket Page!</div>;
+  // 현재는 주문할 메뉴를 가정해놓은 상태
+  // 앞 단계에서 음성인식으로 주문한 메뉴들의 이름을 가져오는 작업 필요
+  const [menuCounts, setMenuCounts] = useState({
+    handmadeCutlet: 1,
+    longNamedMenu: 1,
+    kimchiStew: 1,
+    soybeanStew: 1,
+  });
+
+  const navigate = useNavigate();
+  const goToPayment = () => {
+    navigate("/payment");
+  };
+
+  const goToBack = () => {
+    window.history.back();
+  };
+
+  const handleIncrement = (menu) => {
+    setMenuCounts((prevCounts) => ({
+      ...prevCounts,
+      [menu]: prevCounts[menu] + 1,
+    }));
+  };
+
+  const handleDecrement = (menu) => {
+    setMenuCounts((prevCounts) => ({
+      ...prevCounts,
+      [menu]: prevCounts[menu] > 1 ? prevCounts[menu] - 1 : 1,
+    }));
+  };
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.tabBar}>
+        <button className={styles.goBackBtn} onClick={goToBack}></button>
+        장바구니
+        <div className={styles.spacer}></div>
+      </div>
+
+      <div className={styles.contents}>
+        <div className={styles.menuView}>
+          <div className={styles.eachMenu}>
+            <span>수제왕돈까스</span>
+            <div className={styles.amount}>
+              <button
+                className={styles.plusBtn}
+                onClick={() => handleIncrement("handmadeCutlet")}
+              ></button>
+              <div className="count">{menuCounts.handmadeCutlet}</div>
+              <button
+                className={styles.minusBtn}
+                onClick={() => handleDecrement("handmadeCutlet")}
+              ></button>
+            </div>
+          </div>
+          <div className={styles.eachMenu}>
+            <span>이름이엄청긴메뉴임을 가정한</span>
+            <div className={styles.amount}>
+              <button
+                className={styles.plusBtn}
+                onClick={() => handleIncrement("longNamedMenu")}
+              ></button>
+              <div className="count">{menuCounts.longNamedMenu}</div>
+              <button
+                className={styles.minusBtn}
+                onClick={() => handleDecrement("longNamedMenu")}
+              ></button>
+            </div>
+          </div>
+          <div className={styles.eachMenu}>
+            <span>김치찌개</span>
+            <div className={styles.amount}>
+              <button
+                className={styles.plusBtn}
+                onClick={() => handleIncrement("kimchiStew")}
+              ></button>
+              <div className="count">{menuCounts.kimchiStew}</div>
+              <button
+                className={styles.minusBtn}
+                onClick={() => handleDecrement("kimchiStew")}
+              ></button>
+            </div>
+          </div>
+          <div className={styles.eachMenu}>
+            <span>된장찌개</span>
+            <div className={styles.amount}>
+              <button
+                className={styles.plusBtn}
+                onClick={() => handleIncrement("soybeanStew")}
+              ></button>
+              <div className="count">{menuCounts.soybeanStew}</div>
+              <button
+                className={styles.minusBtn}
+                onClick={() => handleDecrement("soybeanStew")}
+              ></button>
+            </div>
+          </div>
+        </div>
+        <div style={{ display: "flex" }}>
+          <button className={styles.storeBtn} onClick={goToBack}>
+            수정
+          </button>
+          <button className={styles.storeBtn} onClick={goToPayment}>
+            결제
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
-/*
-Button.propTypes = {
-  text: PropTypes.string.isRequired,
+
+Basket.propTypes = {
+  //text: PropTypes.string.isRequired,
 };
-*/
 
 export default Basket;

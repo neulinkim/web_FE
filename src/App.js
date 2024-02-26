@@ -5,6 +5,7 @@ import Order from "./pages/Order";
 import CurrentOrder from "./pages/CurrentOrder";
 import RecentOrder from "./pages/RecentOrder";
 import Basket from "./pages/Basket";
+import Payment from "./pages/Payment";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path={"/currentOrder"} element={<CurrentOrder />} />
         <Route path={"/recentOrder"} element={<RecentOrder />} />
         <Route path={"/basket"} element={<Basket />}></Route>
+        <Route path={"/payment"} element={<Payment />}></Route>
       </Routes>
     </BrowserRouter>
   );
